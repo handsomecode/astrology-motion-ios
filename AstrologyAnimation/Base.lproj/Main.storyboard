@@ -101,7 +101,7 @@
                                             <constraint firstAttribute="height" constant="200" id="tXM-fP-a5L"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-Hb-kOH">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsun" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-Hb-kOH">
                                         <rect key="frame" x="57" y="77.666666666666657" width="300" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="CJN-T3-K89"/>
@@ -247,9 +247,9 @@
         <image name="leo" width="248" height="275"/>
         <image name="moon" width="598" height="598"/>
         <image name="mooninleo" width="346" height="20"/>
+        <image name="newsun" width="616" height="616"/>
         <image name="outtercircle" width="251" height="252"/>
         <image name="particles" width="1200" height="750"/>
-        <image name="sun" width="616" height="616"/>
         <image name="suninaquarius" width="288" height="24"/>
         <image name="uppernav" width="769" height="250"/>
         <image name="vignette" width="752" height="1334"/>
