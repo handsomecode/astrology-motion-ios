@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var moonLinesView: UIImageView!
     @IBOutlet weak var sunLinesView: UIImageView!
     @IBOutlet weak var bottomIcons: UIImageView!
+    @IBOutlet weak var particlesView: UIImageView!
 
     @IBOutlet weak var outterCircle: UIImageView!
     @IBOutlet weak var innerCircle: UIImageView!
@@ -40,6 +41,7 @@ class ViewController: UIViewController {
             animateHighliter()
             animateObjectPositionText()
             animateCircles()
+            animateParticles()
             animateGraph()
             animateMoonMovement()
             animateSunMovement()
@@ -104,6 +106,21 @@ class ViewController: UIViewController {
             self.innerCircle.transform = CGAffineTransform.identity
             self.outterCircle.transform = CGAffineTransform.identity
             self.vignetteBackgroundImage.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+
+    func animateParticles() {
+        UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseInOut, animations: {
+            if self.toMoon {
+                self.particlesView.center.x = self.particlesView.center.x - 400
+                self.particlesView.center.y = self.particlesView.center.y + 100
+                self.particlesView.alpha = 0.6
+                self.particlesView.transform = CGAffineTransform.identity
+            } else {
+                self.particlesView.center.x = self.particlesView.center.x + 400
+                self.particlesView.center.y = self.particlesView.center.y - 100
+                self.particlesView.transform = CGAffineTransform(scaleX: 2, y: 2)
+            }
         }, completion: nil)
     }
 
