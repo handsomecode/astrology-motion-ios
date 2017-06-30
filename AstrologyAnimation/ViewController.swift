@@ -110,7 +110,7 @@ class ViewController: UIViewController {
     }
 
     func animateParticles() {
-        UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
             if self.toMoon {
                 self.particlesView.center.x = self.particlesView.center.x - 400
                 self.particlesView.center.y = self.particlesView.center.y + 100
