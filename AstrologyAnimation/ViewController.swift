@@ -147,7 +147,7 @@ class ViewController: UIViewController {
             self.moonLinesView.alpha = 1
         }
 
-        UIView.animate(withDuration: 0.5, delay: self.toMoon ? 0.15 : 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.6, animations: {
+        UIView.animate(withDuration: self.toMoon ? 0.5 : 0.55, delay: self.toMoon ? 0.2 : 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.6, animations: {
             if self.toMoon {
 
                 self.moon.center.x = self.moon.center.x + self.moonDistance
@@ -198,7 +198,7 @@ class ViewController: UIViewController {
                 self.sun.alpha = 0.2
             }
         }
-        UIView.animate(withDuration: 0.65, delay: self.toMoon ? 0 : 0.05, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
+        UIView.animate(withDuration: self.toMoon ? 0.4 : 0.65, delay: self.toMoon ? 0 : 0.15, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
             if self.toMoon {
                 self.sun.center.x = self.sun.center.x + self.sunDistance
                 self.sun.transform = CGAffineTransform(scaleX: 6, y: 6)
