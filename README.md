@@ -2,7 +2,7 @@
 
 Original dribble animation is [here](https://cdn.dribbble.com/users/85823/screenshots/2299696/astrology.gif).
 
-And you can see into the [current implementation](https://cl.ly/3F2g3u0y3Z3H).
+Also, you can take a look into the [current implementation](https://cl.ly/19452I3R2U1N).
 
 # Requirements
 - iOS 8.0+
