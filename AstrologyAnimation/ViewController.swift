@@ -98,8 +98,8 @@ class ViewController: UIViewController {
 
     func animateCircles() {
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
-            self.innerCircle.transform = CGAffineTransform(scaleX: 2.2, y: 2.2)
-            self.outterCircle.transform = CGAffineTransform(scaleX: 2.2, y: 2.2)
+            self.innerCircle.transform = CGAffineTransform(scaleX: 2, y: 2)
+            self.outterCircle.transform = CGAffineTransform(scaleX: 2, y: 2)
             self.vignetteBackgroundImage.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
         }, completion: nil)
         UIView.animate(withDuration: 0.35, delay: 0.4, usingSpringWithDamping: 1, initialSpringVelocity: 0.9, animations: {
