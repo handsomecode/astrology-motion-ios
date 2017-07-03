@@ -1,8 +1,12 @@
 # Astrology Motion iOS
 
-Original dribble animation is [here](https://cdn.dribbble.com/users/85823/screenshots/2299696/astrology.gif).
+Original dribble animation
 
-Also, you can take a look into the [current implementation](https://cl.ly/19452I3R2U1N).
+![original animation](https://user-images.githubusercontent.com/2081318/27797080-21710168-602e-11e7-922e-6fcd385681ea.gif)
+
+Astrology Motion, implemented using iOS UIKit Animations
+
+![implemented animation](https://user-images.githubusercontent.com/2081318/27797545-e60188e4-602f-11e7-893f-51175333baaf.gif)
 
 # Requirements
 - iOS 8.0+
