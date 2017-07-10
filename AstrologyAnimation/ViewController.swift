@@ -30,6 +30,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var sun: UIImageView!
     @IBOutlet weak var activeIconHighlighter: UIImageView!
 
+    private let controlPoint1 = CGPoint(x: 0.95, y: 0.22)
+    private let controlPoint2 = CGPoint(x: 0.15, y: 0.93)
+
     var moonBlurEffectView: UIVisualEffectView!
     var sunBlurEffectView: UIVisualEffectView!
 
@@ -97,31 +100,63 @@ class ViewController: UIViewController {
     }
 
     func animateCircles() {
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
-            self.innerCircle.transform = CGAffineTransform(scaleX: 2, y: 2)
-            self.outterCircle.transform = CGAffineTransform(scaleX: 2, y: 2)
-            self.vignetteBackgroundImage.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
-        }, completion: nil)
-        UIView.animate(withDuration: 0.35, delay: 0.4, usingSpringWithDamping: 1, initialSpringVelocity: 0.9, animations: {
-            self.innerCircle.transform = CGAffineTransform.identity
-            self.outterCircle.transform = CGAffineTransform.identity
-            self.vignetteBackgroundImage.transform = CGAffineTransform.identity
-        }, completion: nil)
+        if #available(iOS 10, *) {
+            let circlesGrowAnimator = UIViewPropertyAnimator(duration: 0.4, controlPoint1: controlPoint1, controlPoint2: controlPoint2, animations: {
+                self.innerCircle.transform = CGAffineTransform(scaleX: 2, y: 2)
+                self.outterCircle.transform = CGAffineTransform(scaleX: 2, y: 2)
+                self.vignetteBackgroundImage.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+            })
+            circlesGrowAnimator.startAnimation()
+            circlesGrowAnimator.addCompletion { _ in
+                UIViewPropertyAnimator(duration: 0.4, controlPoint1: self.controlPoint1, controlPoint2: self.controlPoint2, animations: {
+                    self.innerCircle.transform = CGAffineTransform.identity
+                    self.outterCircle.transform = CGAffineTransform.identity
+                    self.vignetteBackgroundImage.transform = CGAffineTransform.identity
+                }).startAnimation()
+            }
+        } else {
+            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
+                self.innerCircle.transform = CGAffineTransform(scaleX: 2, y: 2)
+                self.outterCircle.transform = CGAffineTransform(scaleX: 2, y: 2)
+                self.vignetteBackgroundImage.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+            }, completion: nil)
+            UIView.animate(withDuration: 0.38, delay: 0.4, usingSpringWithDamping: 1, initialSpringVelocity: 0.9, animations: {
+                self.innerCircle.transform = CGAffineTransform.identity
+                self.outterCircle.transform = CGAffineTransform.identity
+                self.vignetteBackgroundImage.transform = CGAffineTransform.identity
+            }, completion: nil)
+        }
     }
 
     func animateParticles() {
-        UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
-            if self.toMoon {
-                self.particlesView.center.x = self.particlesView.center.x - 400
-                self.particlesView.center.y = self.particlesView.center.y + 100
-                self.particlesView.alpha = 0.6
-                self.particlesView.transform = CGAffineTransform.identity
-            } else {
-                self.particlesView.center.x = self.particlesView.center.x + 400
-                self.particlesView.center.y = self.particlesView.center.y - 100
-                self.particlesView.transform = CGAffineTransform(scaleX: 2, y: 2)
-            }
-        }, completion: nil)
+        if #available(iOS 10, *) {
+            let particlesAnimator = UIViewPropertyAnimator(duration: 0.7, controlPoint1: controlPoint1, controlPoint2: controlPoint2, animations: {
+                if self.toMoon {
+                    self.particlesView.center.x = self.particlesView.center.x - 400
+                    self.particlesView.center.y = self.particlesView.center.y + 100
+                    self.particlesView.alpha = 0.6
+                    self.particlesView.transform = CGAffineTransform.identity
+                } else {
+                    self.particlesView.center.x = self.particlesView.center.x + 400
+                    self.particlesView.center.y = self.particlesView.center.y - 100
+                    self.particlesView.transform = CGAffineTransform(scaleX: 2, y: 2)
+                }
+            })
+            particlesAnimator.startAnimation()
+        } else {
+            UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
+                if self.toMoon {
+                    self.particlesView.center.x = self.particlesView.center.x - 400
+                    self.particlesView.center.y = self.particlesView.center.y + 100
+                    self.particlesView.alpha = 0.6
+                    self.particlesView.transform = CGAffineTransform.identity
+                } else {
+                    self.particlesView.center.x = self.particlesView.center.x + 400
+                    self.particlesView.center.y = self.particlesView.center.y - 100
+                    self.particlesView.transform = CGAffineTransform(scaleX: 2, y: 2)
+                }
+            }, completion: nil)
+        }
     }
 
     func animateObjectPositionText() {
@@ -147,40 +182,80 @@ class ViewController: UIViewController {
             self.moonLinesView.alpha = 1
         }
 
-        UIView.animate(withDuration: self.toMoon ? 0.5 : 0.55, delay: self.toMoon ? 0.2 : 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.6, animations: {
-            if self.toMoon {
+        if #available(iOS 10, *) {
+            let moonAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.5 : 0.55, controlPoint1: controlPoint1, controlPoint2: controlPoint2, animations: {
+                if self.toMoon {
 
-                self.moon.center.x = self.moon.center.x + self.moonDistance
-                self.moon.transform = CGAffineTransform.identity
-                self.moon.alpha = 1
+                    self.moon.center.x = self.moon.center.x + self.moonDistance
+                    self.moon.transform = CGAffineTransform.identity
+                    self.moon.alpha = 1
 
-                self.leoView.center.x = self.moon.center.x
-                self.leoView.transform = self.moon.transform
+                    self.leoView.center.x = self.moon.center.x
+                    self.leoView.transform = self.moon.transform
 
-                self.moonLinesView.center.x = self.moon.center.x
-                self.moonLinesView.transform = self.moon.transform
+                    self.moonLinesView.center.x = self.moon.center.x
+                    self.moonLinesView.transform = self.moon.transform
 
-                self.moonBlurEffectView.alpha = 0
+                    self.moonBlurEffectView.alpha = 0
 
-            } else {
-                self.moon.center.x = self.moon.center.x - self.moonDistance
-                self.moon.transform = CGAffineTransform(scaleX: 0.16, y: 0.16)
-                self.moon.alpha = 0.2
+                } else {
+                    self.moon.center.x = self.moon.center.x - self.moonDistance
+                    self.moon.transform = CGAffineTransform(scaleX: 0.16, y: 0.16)
+                    self.moon.alpha = 0.2
 
-                self.leoView.center.x = self.moon.center.x
-                self.leoView.transform = self.moon.transform
+                    self.leoView.center.x = self.moon.center.x
+                    self.leoView.transform = self.moon.transform
 
-                self.moonLinesView.center.x = self.moon.center.x
-                self.moonLinesView.transform = self.moon.transform
-
-                self.moonBlurEffectView.alpha = 0.5
+                    self.moonLinesView.center.x = self.moon.center.x
+                    self.moonLinesView.transform = self.moon.transform
+                    
+                    self.moonBlurEffectView.alpha = 0.5
+                }
+            })
+            moonAnimator.addCompletion { _ in
+                if !self.toMoon {
+                    self.leoView.alpha = 0
+                    self.moonLinesView.alpha = 0
+                }
             }
-        }, completion: { _ in
-            if !self.toMoon {
-                self.leoView.alpha = 0
-                self.moonLinesView.alpha = 0
-            }
-        })
+            moonAnimator.startAnimation(afterDelay: self.toMoon ? 0.2 : 0)
+
+        } else {
+            UIView.animate(withDuration: self.toMoon ? 0.5 : 0.55, delay: self.toMoon ? 0.2 : 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.6, animations: {
+                if self.toMoon {
+
+                    self.moon.center.x = self.moon.center.x + self.moonDistance
+                    self.moon.transform = CGAffineTransform.identity
+                    self.moon.alpha = 1
+
+                    self.leoView.center.x = self.moon.center.x
+                    self.leoView.transform = self.moon.transform
+
+                    self.moonLinesView.center.x = self.moon.center.x
+                    self.moonLinesView.transform = self.moon.transform
+
+                    self.moonBlurEffectView.alpha = 0
+
+                } else {
+                    self.moon.center.x = self.moon.center.x - self.moonDistance
+                    self.moon.transform = CGAffineTransform(scaleX: 0.16, y: 0.16)
+                    self.moon.alpha = 0.2
+
+                    self.leoView.center.x = self.moon.center.x
+                    self.leoView.transform = self.moon.transform
+
+                    self.moonLinesView.center.x = self.moon.center.x
+                    self.moonLinesView.transform = self.moon.transform
+
+                    self.moonBlurEffectView.alpha = 0.5
+                }
+            }, completion: { _ in
+                if !self.toMoon {
+                    self.leoView.alpha = 0
+                    self.moonLinesView.alpha = 0
+                }
+            })
+        }
     }
 
     func animateSunMovement() {
@@ -198,43 +273,88 @@ class ViewController: UIViewController {
                 self.sun.alpha = 0.2
             }
         }
-        UIView.animate(withDuration: self.toMoon ? 0.4 : 0.65, delay: self.toMoon ? 0 : 0.15, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
-            if self.toMoon {
-                self.sun.center.x = self.sun.center.x + self.sunDistance
-                self.sun.transform = CGAffineTransform(scaleX: 6, y: 6)
-                self.sun.alpha = 0.2
+        if #available(iOS 10, *) {
+            //controlPoint1: CGPoint(x: 0.67, y: 0.14), controlPoint2: CGPoint(x: 0.54, y: 0.98)
+            let sunAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.4 : 0.65, controlPoint1: CGPoint(x: 0.47, y: 0.21), controlPoint2: CGPoint(x: 0.1, y: 0.8), animations: {
+                if self.toMoon {
+                    self.sun.center.x = self.sun.center.x + self.sunDistance
+                    self.sun.transform = CGAffineTransform(scaleX: 6, y: 6)
+                    self.sun.alpha = 0.2
 
-                self.aquariusView.center.x = self.sun.center.x
-                self.aquariusView.transform = self.sun.transform
+                    self.aquariusView.center.x = self.sun.center.x
+                    self.aquariusView.transform = self.sun.transform
 
-                self.sunLinesView.center.x = self.sun.center.x
-                self.sunLinesView.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
-                self.sunLinesView.alpha = 0.1
+                    self.sunLinesView.center.x = self.sun.center.x
+                    self.sunLinesView.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
+                    self.sunLinesView.alpha = 0.1
 
-                self.sunBlurEffectView.alpha = 1
+                    self.sunBlurEffectView.alpha = 1
+                }
+                else {
+                    self.sun.center.x = self.sun.center.x - self.sunDistance
+                    self.sun.transform = CGAffineTransform.identity
+                    self.sun.alpha = 1
+
+                    self.aquariusView.center.x = self.sun.center.x
+                    self.aquariusView.transform = self.sun.transform
+
+                    self.sunLinesView.center.x = self.sun.center.x
+                    self.sunLinesView.transform = self.sun.transform
+                    self.sunLinesView.alpha = 1
+                    
+                    self.sunBlurEffectView.alpha = 0
+                    
+                }
+            })
+            sunAnimator.addCompletion { _ in
+                if self.toMoon {
+                    self.sun.isHidden = true
+                    self.aquariusView.isHidden = true
+                    self.sunLinesView.isHidden = true
+                }
             }
-            else {
-                self.sun.center.x = self.sun.center.x - self.sunDistance
-                self.sun.transform = CGAffineTransform.identity
-                self.sun.alpha = 1
+            sunAnimator.startAnimation(afterDelay: self.toMoon ? 0 : 0.15)
+            
+        } else {
 
-                self.aquariusView.center.x = self.sun.center.x
-                self.aquariusView.transform = self.sun.transform
+            UIView.animate(withDuration: self.toMoon ? 0.4 : 0.6, delay: self.toMoon ? 0 : 0.15, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
+                if self.toMoon {
+                    self.sun.center.x = self.sun.center.x + self.sunDistance
+                    self.sun.transform = CGAffineTransform(scaleX: 6, y: 6)
+                    self.sun.alpha = 0.2
 
-                self.sunLinesView.center.x = self.sun.center.x
-                self.sunLinesView.transform = self.sun.transform
-                self.sunLinesView.alpha = 1
+                    self.aquariusView.center.x = self.sun.center.x
+                    self.aquariusView.transform = self.sun.transform
 
-                self.sunBlurEffectView.alpha = 0
+                    self.sunLinesView.center.x = self.sun.center.x
+                    self.sunLinesView.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
+                    self.sunLinesView.alpha = 0.1
 
-            }
-        }, completion: { _ in
-            if self.toMoon {
-                self.sun.isHidden = true
-                self.aquariusView.isHidden = true
-                self.sunLinesView.isHidden = true
-            }
-        })
+                    self.sunBlurEffectView.alpha = 1
+                }
+                else {
+                    self.sun.center.x = self.sun.center.x - self.sunDistance
+                    self.sun.transform = CGAffineTransform.identity
+                    self.sun.alpha = 1
+
+                    self.aquariusView.center.x = self.sun.center.x
+                    self.aquariusView.transform = self.sun.transform
+
+                    self.sunLinesView.center.x = self.sun.center.x
+                    self.sunLinesView.transform = self.sun.transform
+                    self.sunLinesView.alpha = 1
+
+                    self.sunBlurEffectView.alpha = 0
+
+                }
+            }, completion: { _ in
+                if self.toMoon {
+                    self.sun.isHidden = true
+                    self.aquariusView.isHidden = true
+                    self.sunLinesView.isHidden = true
+                }
+            })
+        }
     }
 
 }
