@@ -1,8 +1,6 @@
 # Astrology Motion iOS
 
-Original dribble animation
-
-![original animation](https://user-images.githubusercontent.com/2081318/27797080-21710168-602e-11e7-922e-6fcd385681ea.gif)
+Original designed animation is [on our dribble](https://dribbble.com/shots/2299696-Astrology-Mobile-App-Animation).
 
 Astrology Motion, implemented using iOS UIKit Animations
 
