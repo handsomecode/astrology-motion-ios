@@ -80,13 +80,6 @@
                                             <constraint firstAttribute="height" constant="14" id="Sgk-h6-4XF"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outtercircle" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-2c-c4d">
-                                        <rect key="frame" x="76.666666666666686" y="98.666666666666657" width="260" height="260"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="260" id="AFX-Aw-PDP"/>
-                                            <constraint firstAttribute="height" constant="260" id="JSP-4m-taR"/>
-                                        </constraints>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon" translatesAutoresizingMaskIntoConstraints="NO" id="t9O-V6-Smd">
                                         <rect key="frame" x="56.666666666666657" y="78.666666666666657" width="300" height="300"/>
                                         <constraints>
@@ -94,18 +87,25 @@
                                             <constraint firstAttribute="width" constant="300" id="pZr-If-zwQ"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="innercircle" translatesAutoresizingMaskIntoConstraints="NO" id="BA2-wC-lM3">
-                                        <rect key="frame" x="107.66666666666669" y="128.66666666666669" width="200" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="pPr-YT-h2J"/>
-                                            <constraint firstAttribute="height" constant="200" id="tXM-fP-a5L"/>
-                                        </constraints>
-                                    </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newsun" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-Hb-kOH">
                                         <rect key="frame" x="57" y="77.666666666666657" width="300" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="CJN-T3-K89"/>
                                             <constraint firstAttribute="width" constant="300" id="aY8-N6-PxS"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outtercircle" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-2c-c4d">
+                                        <rect key="frame" x="87" y="108" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="AFX-Aw-PDP"/>
+                                            <constraint firstAttribute="height" constant="240" id="JSP-4m-taR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="innercircle" translatesAutoresizingMaskIntoConstraints="NO" id="BA2-wC-lM3">
+                                        <rect key="frame" x="112" y="133" width="190" height="190"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="190" id="pPr-YT-h2J"/>
+                                            <constraint firstAttribute="height" constant="190" id="tXM-fP-a5L"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leo" translatesAutoresizingMaskIntoConstraints="NO" id="uzI-JQ-ze9">
