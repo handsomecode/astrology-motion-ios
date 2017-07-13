@@ -2,9 +2,9 @@
 
 Original designed animation is [on our dribble](https://dribbble.com/shots/2299696-Astrology-Mobile-App-Animation).
 
-Astrology Motion, implemented using iOS-10 Animations SDK
+Astrology Motion, implemented using iOS10 Animations SDK
 
-![implemented animation](https://user-images.githubusercontent.com/2081318/28061115-2fc8836c-664b-11e7-8cea-39aa8dae0ee4.gif)
+![implemented animation](https://user-images.githubusercontent.com/2081318/28152290-742aa086-67c1-11e7-8e58-1cbf75dceaa3.gif)
 
 # Requirements
 - iOS 8.0+
@@ -12,4 +12,4 @@ Astrology Motion, implemented using iOS-10 Animations SDK
 - Swift 3.0+
 
 # License
-InteractiveSideMenu is available under the Apache License, Version 2.0. See the [LICENSE](./LICENSE) file for more info.
+AstrologyAnimation is available under the Apache License, Version 2.0. See the [LICENSE](./LICENSE) file for more info.
