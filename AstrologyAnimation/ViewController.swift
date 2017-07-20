@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         moonBlurEffectView.alpha = 0
     }
 
-    func iconsTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func iconsTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         toMoon = !toMoon
     }
 
@@ -136,49 +136,30 @@ class ViewController: UIViewController {
             self.vignetteBackgroundImage.transform = growing ? CGAffineTransform(scaleX: 1.8, y: 1.8) : CGAffineTransform.identity
         }
 
-        if #available(iOS 10, *) {
-            let circlesGrowAnimator = UIViewPropertyAnimator(duration: 0.4, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
-                animations(growing: true)
-            })
-            circlesGrowAnimator.startAnimation()
-            circlesGrowAnimator.addCompletion { _ in
-                UIViewPropertyAnimator(duration: 0.38, controlPoint1: self.animationSettings.controlPoint1, controlPoint2: self.animationSettings.controlPoint2, animations: {
-                    animations(growing: false)
-                }).startAnimation()
-            }
-        } else {
-            UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
-                animations(growing: true)
-            }, completion: nil)
-            UIView.animate(withDuration: 0.38, delay: 0.4, usingSpringWithDamping: 1, initialSpringVelocity: 0.9, animations: {
+        let circlesGrowAnimator = UIViewPropertyAnimator(duration: 0.4, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
+            animations(growing: true)
+        })
+        circlesGrowAnimator.startAnimation()
+        circlesGrowAnimator.addCompletion { _ in
+            UIViewPropertyAnimator(duration: 0.38, controlPoint1: self.animationSettings.controlPoint1, controlPoint2: self.animationSettings.controlPoint2, animations: {
                 animations(growing: false)
-            }, completion: nil)
+            }).startAnimation()
         }
     }
 
     private func animateParticles() {
-        if #available(iOS 10, *) {
-            UIViewPropertyAnimator(duration: 0.7, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
-                self.particlesAnimations()
-            }).startAnimation()
-        } else {
-            UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
-                self.particlesAnimations()
-            }, completion: nil)
-        }
-    }
-
-    private func particlesAnimations() {
-        if self.toMoon {
-            particlesView.center.x = particlesView.center.x - 400
-            particlesView.center.y = particlesView.center.y + 100
-            particlesView.alpha = 0.6
-            particlesView.transform = CGAffineTransform.identity
-        } else {
-            particlesView.center.x = particlesView.center.x + 400
-            particlesView.center.y = particlesView.center.y - 100
-            particlesView.transform = CGAffineTransform(scaleX: 2, y: 2)
-        }
+        UIViewPropertyAnimator(duration: 0.7, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
+            if self.toMoon {
+                self.particlesView.center.x = self.particlesView.center.x - 400
+                self.particlesView.center.y = self.particlesView.center.y + 100
+                self.particlesView.alpha = 0.6
+                self.particlesView.transform = CGAffineTransform.identity
+            } else {
+                self.particlesView.center.x = self.particlesView.center.x + 400
+                self.particlesView.center.y = self.particlesView.center.y - 100
+                self.particlesView.transform = CGAffineTransform(scaleX: 2, y: 2)
+            }
+        }).startAnimation()
     }
 
     private func animateMoonMovement() {
@@ -186,29 +167,16 @@ class ViewController: UIViewController {
             self.leoView.alpha = 1
             self.moonLinesView.alpha = 1
         }
-
-        if #available(iOS 10, *) {
-            let moonAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.5 : 0.55, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
-                self.moonAnimations()
-            })
-            moonAnimator.addCompletion { _ in
-                if !self.toMoon {
-                    self.leoView.alpha = 0
-                    self.moonLinesView.alpha = 0
-                }
+        let moonAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.5 : 0.55, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
+            self.moonAnimations()
+        })
+        moonAnimator.addCompletion { _ in
+            if !self.toMoon {
+                self.leoView.alpha = 0
+                self.moonLinesView.alpha = 0
             }
-            moonAnimator.startAnimation(afterDelay: self.toMoon ? 0.2 : 0)
-
-        } else {
-            UIView.animate(withDuration: self.toMoon ? 0.5 : 0.55, delay: self.toMoon ? 0.2 : 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.6, animations: {
-                self.moonAnimations()
-            }, completion: { _ in
-                if !self.toMoon {
-                    self.leoView.alpha = 0
-                    self.moonLinesView.alpha = 0
-                }
-            })
         }
+        moonAnimator.startAnimation(afterDelay: self.toMoon ? 0.2 : 0)
     }
 
     private func moonAnimations() {
@@ -255,30 +223,18 @@ class ViewController: UIViewController {
                 self.sun.alpha = 0.2
             }
         }
-        if #available(iOS 10, *) {
-            let sunAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.4 : 0.68, controlPoint1: CGPoint(x: 0.47, y: 0.21), controlPoint2: CGPoint(x: 0.01, y: 1), animations: {
-                self.sunAnimations()
-            })
-            sunAnimator.addCompletion { _ in
-                if self.toMoon {
-                    self.sun.isHidden = true
-                    self.aquariusView.isHidden = true
-                    self.sunLinesView.isHidden = true
-                }
-            }
-            sunAnimator.startAnimation(afterDelay: self.toMoon ? 0 : 0.15)
-        } else {
 
-            UIView.animate(withDuration: self.toMoon ? 0.4 : 0.65, delay: self.toMoon ? 0 : 0.15, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, animations: {
-                self.sunAnimations()
-            }, completion: { _ in
-                if self.toMoon {
-                    self.sun.isHidden = true
-                    self.aquariusView.isHidden = true
-                    self.sunLinesView.isHidden = true
-                }
-            })
+        let sunAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.4 : 0.68, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
+            self.sunAnimations()
+        })
+        sunAnimator.addCompletion { _ in
+            if self.toMoon {
+                self.sun.isHidden = true
+                self.aquariusView.isHidden = true
+                self.sunLinesView.isHidden = true
+            }
         }
+        sunAnimator.startAnimation(afterDelay: self.toMoon ? 0 : 0.15)
     }
 
     private func sunAnimations() {
