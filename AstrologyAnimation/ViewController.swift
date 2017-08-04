@@ -50,7 +50,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var aquariusView: UIImageView!
     @IBOutlet weak var moon: UIImageView!
     @IBOutlet weak var sun: UIImageView!
-    @IBOutlet weak var activeIconHighlighter: UIImageView!
+    @IBOutlet weak var highlighterContainer: UIView!
+    let highlitherView = HighlitherView()
 
     private var moonBlurEffectView: UIVisualEffectView!
 
@@ -78,6 +79,9 @@ class ViewController: UIViewController {
 
         moonBlurEffectView = moon.addRoundBlurEffect(width: 0.45 * moon.bounds.size.width)
         moonBlurEffectView.alpha = 0
+
+        highlitherView.alpha = 0.12
+        highlighterContainer.addSubview(highlitherView)
     }
 
     @objc func iconsTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -85,8 +89,9 @@ class ViewController: UIViewController {
     }
 
     private func animateHighliter() {
+        highlitherView.animate(toRight: !toMoon)
         UIView.animate(withDuration: 0.56, delay: 0.0, options: .curveEaseInOut, animations: {
-            self.activeIconHighlighter.center.x = self.activeIconHighlighter.center.x + (self.toMoon ? -1 : 1) * self.animationSettings.highlighterDistance
+            self.highlighterContainer.center.x = self.highlighterContainer.center.x + (self.toMoon ? -1 : 1) * self.animationSettings.highlighterDistance
         }, completion: nil)
     }
 

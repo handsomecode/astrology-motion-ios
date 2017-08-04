@@ -169,13 +169,15 @@
                                     <constraint firstItem="eB2-2c-c4d" firstAttribute="centerY" secondItem="3MZ-G1-GJo" secondAttribute="centerY" id="ug3-c6-i7I"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconactive" translatesAutoresizingMaskIntoConstraints="NO" id="Pfp-7g-YFw">
-                                <rect key="frame" x="181.66666666666666" y="624" width="55" height="55"/>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l4K-V0-9It">
+                                <rect key="frame" x="136" y="624" width="145" height="55"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="WBe-oy-g1w"/>
-                                    <constraint firstAttribute="width" constant="55" id="wyH-JS-kA9"/>
+                                    <constraint firstAttribute="height" constant="55" id="Zcu-e2-ZPw"/>
+                                    <constraint firstAttribute="width" constant="145" id="cye-MB-YNN"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -188,7 +190,7 @@
                             <constraint firstAttribute="trailing" secondItem="aUA-Ch-lDL" secondAttribute="trailing" constant="20" id="A6b-wP-pFy"/>
                             <constraint firstItem="Qml-F1-JhO" firstAttribute="top" secondItem="aUA-Ch-lDL" secondAttribute="bottom" constant="18" id="DAE-PD-2Mz"/>
                             <constraint firstAttribute="trailing" secondItem="4wd-XU-eXh" secondAttribute="trailing" id="Dge-Uz-RFK"/>
-                            <constraint firstItem="Pfp-7g-YFw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="2" id="Ear-VL-b0E"/>
+                            <constraint firstItem="l4K-V0-9It" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="2" id="EDP-f6-SJV"/>
                             <constraint firstAttribute="trailing" secondItem="Qml-F1-JhO" secondAttribute="trailing" constant="10" id="IM0-pV-lur"/>
                             <constraint firstItem="3MZ-G1-GJo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IWd-fe-dFQ"/>
                             <constraint firstItem="Qml-F1-JhO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="MOn-Kn-tv9"/>
@@ -197,6 +199,7 @@
                             <constraint firstItem="aUA-Ch-lDL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TKb-pZ-NR5"/>
                             <constraint firstItem="Ktz-ht-LRM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="UAn-sf-8cI"/>
                             <constraint firstItem="IsR-X7-zSj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vgm-6f-Ly4"/>
+                            <constraint firstItem="l4K-V0-9It" firstAttribute="top" secondItem="Fhz-3z-Zus" secondAttribute="top" constant="-2" id="Znj-iE-voL"/>
                             <constraint firstItem="3MZ-G1-GJo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="bMV-Bh-dlA"/>
                             <constraint firstItem="4wd-XU-eXh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c0R-0P-AsX"/>
                             <constraint firstItem="aUA-Ch-lDL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="c1H-aT-I3x"/>
@@ -206,17 +209,16 @@
                             <constraint firstItem="Fhz-3z-Zus" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="m9H-D3-7pz"/>
                             <constraint firstAttribute="trailing" secondItem="3MZ-G1-GJo" secondAttribute="trailing" id="rpk-Wj-WG3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dx2-Ma-Ifz" secondAttribute="bottom" id="scN-wN-pmk"/>
-                            <constraint firstItem="Pfp-7g-YFw" firstAttribute="top" secondItem="Fhz-3z-Zus" secondAttribute="top" constant="-2" id="t4v-8i-aac"/>
                             <constraint firstItem="4wd-XU-eXh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="z12-3x-OVi"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activeIconHighlighter" destination="Pfp-7g-YFw" id="xqG-pH-Zcq"/>
                         <outlet property="aquariusView" destination="kck-5h-tci" id="48c-3a-n9a"/>
                         <outlet property="bottomIcons" destination="Fhz-3z-Zus" id="9se-KD-lhq"/>
                         <outlet property="containerView" destination="3MZ-G1-GJo" id="Vnf-g0-9Qr"/>
                         <outlet property="graph" destination="6uT-Xb-RXV" id="jZj-sm-zYH"/>
                         <outlet property="graphPointView" destination="qKj-gf-xSZ" id="4hC-qB-YPb"/>
+                        <outlet property="highlighterContainer" destination="l4K-V0-9It" id="mGG-dW-MR1"/>
                         <outlet property="innerCircle" destination="BA2-wC-lM3" id="0Cj-Pe-5cI"/>
                         <outlet property="leoView" destination="uzI-JQ-ze9" id="xmV-4G-PbN"/>
                         <outlet property="moon" destination="t9O-V6-Smd" id="8Sj-eC-LUL"/>
@@ -232,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194.40000000000001" y="-107.49625187406298"/>
+            <point key="canvasLocation" x="-195.6521739130435" y="-107.60869565217392"/>
         </scene>
     </scenes>
     <resources>
@@ -243,7 +245,6 @@
         <image name="centergraphpoint" width="40" height="40"/>
         <image name="coordinates" width="780" height="31"/>
         <image name="graph" width="1400" height="230"/>
-        <image name="iconactive" width="117" height="117"/>
         <image name="innercircle" width="392" height="392"/>
         <image name="leo" width="248" height="275"/>
         <image name="moon" width="598" height="598"/>
