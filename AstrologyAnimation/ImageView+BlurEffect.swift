@@ -42,5 +42,4 @@ extension UIImageView {
         self.addSubview(blurEffectView)
         return blurEffectView
     }
-
 }

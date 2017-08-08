@@ -18,10 +18,10 @@
 
 import UIKit
 
-let color = UIColor(red: 0.843, green: 0.882, blue: 0.961, alpha: 1.0)
-
 class HighlitherView: UIView {
 
+    let color = UIColor(red: 0.843, green: 0.882, blue: 0.961, alpha: 1.0)
+    
     let tailLayer = CAShapeLayer()
     let ovalLayer = CAShapeLayer()
 
@@ -47,46 +47,34 @@ class HighlitherView: UIView {
     func animate(toRight: Bool) {
         let showTailAnimation = CABasicAnimation(keyPath: "path")
         showTailAnimation.duration = 0.3
-        showTailAnimation.fromValue = toRight ? rightHiddenTail() : leftHiddenTail()
+        showTailAnimation.fromValue = toRight ? rightTail(hidden: true) : leftTail(hidden: true)
         showTailAnimation.toValue = toRight ? rightTail() : leftTail()
         showTailAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 
         let hideTailAnimation = CABasicAnimation(keyPath: "path")
         hideTailAnimation.duration = 0.26
         hideTailAnimation.beginTime = CACurrentMediaTime() + 0.3
-        hideTailAnimation.toValue = toRight ? rightHiddenTail() : leftHiddenTail()
         hideTailAnimation.fromValue = toRight ? rightTail() : leftTail()
+        hideTailAnimation.toValue = toRight ? rightTail(hidden: true) : leftTail(hidden: true)
         hideTailAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 
         tailLayer.add(showTailAnimation, forKey: nil)
         tailLayer.add(hideTailAnimation, forKey: nil)
     }
 
-    func rightHiddenTail() -> CGPath {
+    private func rightTail(hidden: Bool = false) -> CGPath {
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 77.5, y: 0))
-        bezierPath.addQuadCurve(to: CGPoint(x: 77.5, y: 55), controlPoint: CGPoint(x: 115, y: 27.5))
+        let controlPoint = hidden ? CGPoint(x: 115, y: 27.5) : CGPoint(x: 140, y: 27.5)
+        bezierPath.addQuadCurve(to: CGPoint(x: 77.5, y: 55), controlPoint: controlPoint)
         return bezierPath.cgPath
     }
 
-    func rightTail() -> CGPath {
-        let bezierPath = UIBezierPath()
-        bezierPath.move(to: CGPoint(x: 77.5, y: 0))
-        bezierPath.addQuadCurve(to: CGPoint(x: 77.5, y: 55), controlPoint: CGPoint(x: 145, y: 27.5))
-        return bezierPath.cgPath
-    }
-
-    func leftHiddenTail() -> CGPath {
+    private func leftTail(hidden: Bool = false) -> CGPath {
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 67.5, y: 0))
-        bezierPath.addQuadCurve(to: CGPoint(x: 67.5, y: 55), controlPoint: CGPoint(x: 35, y: 27.5))
-        return bezierPath.cgPath
-    }
-
-    func leftTail() -> CGPath {
-        let bezierPath = UIBezierPath()
-        bezierPath.move(to: CGPoint(x: 67.5, y: 0))
-        bezierPath.addQuadCurve(to: CGPoint(x: 67.5, y: 55), controlPoint: CGPoint(x: -5, y: 27.5))
+        let controlPoint = hidden ? CGPoint(x: 35, y: 27.5) : CGPoint(x: 0, y: 27.5)
+        bezierPath.addQuadCurve(to: CGPoint(x: 67.5, y: 55), controlPoint: controlPoint)
         return bezierPath.cgPath
     }
 }

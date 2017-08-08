@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         let sunDistance: CGFloat = 600
         let moonDistance: CGFloat = 140
         let highlighterDistance: CGFloat = 93
+        let particlesVector = CGVector(dx: 400, dy: -100)
 
         let controlPoint1 = CGPoint(x: 0.47, y: 0.21)
         let controlPoint2 = CGPoint(x: 0.17, y: 0.86)
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var moon: UIImageView!
     @IBOutlet weak var sun: UIImageView!
     @IBOutlet weak var highlighterContainer: UIView!
-    let highlitherView = HighlitherView()
+    let iconsHighlitherView = HighlitherView()
 
     private var moonBlurEffectView: UIVisualEffectView!
 
@@ -80,8 +81,8 @@ class ViewController: UIViewController {
         moonBlurEffectView = moon.addRoundBlurEffect(width: 0.45 * moon.bounds.size.width)
         moonBlurEffectView.alpha = 0
 
-        highlitherView.alpha = 0.12
-        highlighterContainer.addSubview(highlitherView)
+        iconsHighlitherView.alpha = 0.12
+        highlighterContainer.addSubview(iconsHighlitherView)
     }
 
     @objc func iconsTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -89,7 +90,7 @@ class ViewController: UIViewController {
     }
 
     private func animateHighliter() {
-        highlitherView.animate(toRight: !toMoon)
+        iconsHighlitherView.animate(toRight: !toMoon)
         UIView.animate(withDuration: 0.56, delay: 0.0, options: .curveEaseInOut, animations: {
             self.highlighterContainer.center.x = self.highlighterContainer.center.x + (self.toMoon ? -1 : 1) * self.animationSettings.highlighterDistance
         }, completion: nil)
@@ -155,13 +156,13 @@ class ViewController: UIViewController {
     private func animateParticles() {
         UIViewPropertyAnimator(duration: 0.7, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
             if self.toMoon {
-                self.particlesView.center.x = self.particlesView.center.x - 400
-                self.particlesView.center.y = self.particlesView.center.y + 100
+                self.particlesView.center.x = self.particlesView.center.x - self.animationSettings.particlesVector.dx
+                self.particlesView.center.y = self.particlesView.center.y - self.animationSettings.particlesVector.dy
                 self.particlesView.alpha = 0.6
                 self.particlesView.transform = CGAffineTransform.identity
             } else {
-                self.particlesView.center.x = self.particlesView.center.x + 400
-                self.particlesView.center.y = self.particlesView.center.y - 100
+                self.particlesView.center.x = self.particlesView.center.x + self.animationSettings.particlesVector.dx
+                self.particlesView.center.y = self.particlesView.center.y + self.animationSettings.particlesVector.dy
                 self.particlesView.transform = CGAffineTransform(scaleX: 2, y: 2)
             }
         }).startAnimation()
