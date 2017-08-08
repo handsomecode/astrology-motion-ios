@@ -7,7 +7,7 @@ The engeneering team took up a challenge to implement this animation for iOS.
 
 ![implemented animation](https://user-images.githubusercontent.com/2081318/28152290-742aa086-67c1-11e7-8e58-1cbf75dceaa3.gif)
 
-It was decided to use [iOS10 Animation SDK](https://developer.apple.com/reference/uikit/uiviewanimating) in order to control timing functions, so that the animation looks more identical to the designed one. For simple motions we used typical [UIView animations](https://developer.apple.com/documentation/uikit/uiview/1622515-animatewithduration).
+It was decided to use [iOS10 Animation SDK](https://developer.apple.com/reference/uikit/uiviewanimating) in order to control timing functions, so that the animation looks more identical to the designed one. For simple motions we used typical [UIView animations](https://developer.apple.com/documentation/uikit/uiview/1622515-animatewithduration). Also, we added a bubbly motion effect to the circle on the bottom icons using [Core Animation](https://developer.apple.com/documentation/quartzcore/cabasicanimation).
 
 The Astrology motion is combined with a few independent animations like Moon and Sun movement, animating circles around the space objects, partickles effect, graph stretching, and a few more motions. Please, check out the implementation to get more details.
 
