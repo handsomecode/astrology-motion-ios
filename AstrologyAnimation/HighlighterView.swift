@@ -18,7 +18,7 @@
 
 import UIKit
 
-class HighlitherView: UIView {
+class HighlighterView: UIView {
 
     let color = UIColor(red: 0.843, green: 0.882, blue: 0.961, alpha: 1.0)
     

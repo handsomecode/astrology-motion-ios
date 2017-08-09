@@ -13,7 +13,7 @@
 		9A17B2901EF2819700EA045B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A17B28F1EF2819700EA045B /* Assets.xcassets */; };
 		9A17B2931EF2819700EA045B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A17B2911EF2819700EA045B /* LaunchScreen.storyboard */; };
 		9A3363C11F05346200C7AF73 /* ImageView+BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3363C01F05346200C7AF73 /* ImageView+BlurEffect.swift */; };
-		9A52016C1F20E1DE0062957E /* HighliterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A52016B1F20E1DE0062957E /* HighliterView.swift */; };
+		9A52016C1F20E1DE0062957E /* HighlighterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A52016B1F20E1DE0062957E /* HighlighterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		9A17B2921EF2819700EA045B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A17B2941EF2819700EA045B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A3363C01F05346200C7AF73 /* ImageView+BlurEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageView+BlurEffect.swift"; sourceTree = "<group>"; };
-		9A52016B1F20E1DE0062957E /* HighliterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighliterView.swift; sourceTree = "<group>"; };
+		9A52016B1F20E1DE0062957E /* HighlighterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlighterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 				9A17B2881EF2819700EA045B /* AppDelegate.swift */,
 				9A17B28A1EF2819700EA045B /* ViewController.swift */,
 				9A3363C01F05346200C7AF73 /* ImageView+BlurEffect.swift */,
-				9A52016B1F20E1DE0062957E /* HighliterView.swift */,
+				9A52016B1F20E1DE0062957E /* HighlighterView.swift */,
 				9A17B28C1EF2819700EA045B /* Main.storyboard */,
 				9A17B28F1EF2819700EA045B /* Assets.xcassets */,
 				9A17B2911EF2819700EA045B /* LaunchScreen.storyboard */,
@@ -145,7 +145,7 @@
 			files = (
 				9A3363C11F05346200C7AF73 /* ImageView+BlurEffect.swift in Sources */,
 				9A17B28B1EF2819700EA045B /* ViewController.swift in Sources */,
-				9A52016C1F20E1DE0062957E /* HighliterView.swift in Sources */,
+				9A52016C1F20E1DE0062957E /* HighlighterView.swift in Sources */,
 				9A17B2891EF2819700EA045B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,8 +276,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = is.handsome.swift.AstrologyAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -290,8 +290,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = is.handsome.swift.AstrologyAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
