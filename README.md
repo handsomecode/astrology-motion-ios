@@ -5,7 +5,7 @@ The engeneering team took up a challenge to implement this animation for iOS.
 
 #### If you like the result, please, give your :star: to this repository.
 
-![implemented animation](https://user-images.githubusercontent.com/2081318/28152290-742aa086-67c1-11e7-8e58-1cbf75dceaa3.gif)
+![implemented animation](https://user-images.githubusercontent.com/2081318/29116685-70f27a12-7d1d-11e7-9cda-0dcc4662ddb9.gif)
 
 It was decided to use [iOS10 Animation SDK](https://developer.apple.com/reference/uikit/uiviewanimating) in order to control timing functions, so that the animation looks more identical to the designed one. For simple motions we used typical [UIView animations](https://developer.apple.com/documentation/uikit/uiview/1622515-animatewithduration). Also, we added a bubbly motion effect to the circle on the bottom icons using [Core Animation](https://developer.apple.com/documentation/quartzcore/cabasicanimation).
 
