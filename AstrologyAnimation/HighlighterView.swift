@@ -18,6 +18,8 @@
 
 import UIKit
 
+// Circle highlighter view with a "tail" with bubbly motion effect.
+//
 class HighlighterView: UIView {
 
     let color = UIColor(red: 0.843, green: 0.882, blue: 0.961, alpha: 1.0)
@@ -44,6 +46,11 @@ class HighlighterView: UIView {
         layer.addSublayer(tailLayer)
     }
 
+    /**
+     Animates path to show and then hide view's "tail".
+
+     - Parameter toRight: A Boolean value that determines whether view moves to right or not.
+     */
     func animate(toRight: Bool) {
         let showTailAnimation = CABasicAnimation(keyPath: "path")
         showTailAnimation.duration = 0.3
@@ -62,6 +69,12 @@ class HighlighterView: UIView {
         tailLayer.add(hideTailAnimation, forKey: nil)
     }
 
+    /**
+     Path of a "tail" when view moves to the right.
+
+     - Parameter hidden: A Boolean value that determines whether view should become hidden or visible. Default value is `false`.
+     - Returns: The path of "tail" curve at right.
+     */
     private func rightTail(hidden: Bool = false) -> CGPath {
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 77.5, y: 0))
@@ -70,6 +83,12 @@ class HighlighterView: UIView {
         return bezierPath.cgPath
     }
 
+    /**
+     Path of a "tail" when view moves to the left.
+
+     - Parameter hidden: A Boolean value that determines whether view should become hidden or visible. Default value is `false`.
+     - Returns: The path of "tail" curve at left.
+     */
     private func leftTail(hidden: Bool = false) -> CGPath {
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 67.5, y: 0))
