@@ -111,7 +111,7 @@ class ViewController: UIViewController {
             self.leoView.alpha = 1
             self.moonLinesView.alpha = 1
         }
-        let moonAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.5 : 0.55, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
+        let moonAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.5 : 0.56, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
             self.moonAnimations()
         })
 
@@ -170,7 +170,7 @@ class ViewController: UIViewController {
             }
         }
 
-        let sunAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.4 : 0.68, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
+        let sunAnimator = UIViewPropertyAnimator(duration: self.toMoon ? 0.4 : 0.52, controlPoint1: animationSettings.controlPoint1, controlPoint2: animationSettings.controlPoint2, animations: {
             self.sunAnimations()
         })
 
@@ -181,7 +181,7 @@ class ViewController: UIViewController {
                 self.sunLinesView.isHidden = true
             }
         }
-        sunAnimator.startAnimation(afterDelay: self.toMoon ? 0 : 0.15)
+        sunAnimator.startAnimation(afterDelay: self.toMoon ? 0 : 0.18)
     }
 
     // Sun movement, and scaling
