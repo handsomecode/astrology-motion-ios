@@ -1,15 +1,15 @@
 # iOS Astrology Animation
 
 Our design team at Handsome created an [amazing Astrology animation](https://dribbble.com/shots/2299696-Astrology-Mobile-App-Animation). 
-The engeneering team took up a challenge to implement this animation for iOS.
+The engineering team took up a challenge to implement this animation for iOS.
 
-#### If you like the result, please, give your :star: to this repository.
+#### If you like the result, please give your :star: to this repository.
 
 ![implemented animation](https://user-images.githubusercontent.com/2081318/29279886-190b0f9a-813b-11e7-8c42-5e856c384eec.gif)
 
-It was decided to use [iOS10 Animation SDK](https://developer.apple.com/reference/uikit/uiviewanimating) in order to control timing functions, so that the animation looks more identical to the designed one. For simple motions we used typical [UIView animations](https://developer.apple.com/documentation/uikit/uiview/1622515-animatewithduration). Also, we added a bubbly motion effect to the circle on the bottom icons using [Core Animation](https://developer.apple.com/documentation/quartzcore/cabasicanimation).
+We have decided to use [iOS10 Animation SDK](https://developer.apple.com/reference/uikit/uiviewanimating) in order to control timing functions, so that the animation looks more identical to the designed one. For simple motions we used typical [UIView animations](https://developer.apple.com/documentation/uikit/uiview/1622515-animatewithduration). Also, we added a bubbly motion effect to the circle on the bottom icons using [Core Animation](https://developer.apple.com/documentation/quartzcore/cabasicanimation).
 
-The Astrology motion is combined with a few independent animations like Moon and Sun movement, animating circles around the space objects, partickles effect, graph stretching, and a few more motions. Please, check out the implementation to get more details.
+The Astrology motion is combined with a few independent animations like Moon and Sun movement, animating circles around the space objects, particles effect, graph stretching, and a few more motions. Check out the implementation to get more details.
 
 ### A few things from Animations SDK that you'll find in the code
 
@@ -17,7 +17,7 @@ The Astrology motion is combined with a few independent animations like Moon and
 - Creating custom-easing functions, based on Cubic Bézier curves.
 
 
-If you are interested in more features of iOS10 Animations SDK, take a look into the article - [Crafting Delightful Animations in iOS 10](http://handsome.is/crafting-delightful-animations-in-ios-10/).
+If you are interested in more features of iOS10 Animations SDK, take a look at the article - [Crafting Delightful Animations in iOS 10](http://handsome.is/crafting-delightful-animations-in-ios-10/).
 
 # Requirements
 - iOS 10.0+
