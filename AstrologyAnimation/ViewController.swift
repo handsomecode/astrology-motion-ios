@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     private struct AnimationSettings {
 
         // Distance to move Sun view
-        let sunDistance: CGFloat = 600
+        let sunDistance: CGFloat = 620
 
         // Distance to move Moon view
         let moonDistance: CGFloat = 140
@@ -159,14 +159,14 @@ class ViewController: UIViewController {
             self.sun.isHidden = false
             self.aquariusView.isHidden = false
             self.sunLinesView.isHidden = false
-            if sun.center.x < self.animationSettings.sunDistance {
+            if self.sun.center.x < self.animationSettings.sunDistance {
                 self.sun.center.x = self.sun.center.x + self.animationSettings.sunDistance
                 self.aquariusView.center.x = self.sun.center.x
                 self.sunLinesView.center.x = self.sun.center.x
-                self.sun.transform = CGAffineTransform(scaleX: 6, y: 6)
+                self.sun.transform = CGAffineTransform(scaleX: 7, y: 7)
                 self.aquariusView.transform = self.sun.transform
                 self.sunLinesView.transform = CGAffineTransform(scaleX: 3.5, y: 3.5)
-                self.sun.alpha = 0.2
+                self.sun.alpha = 0.1
             }
         }
 
@@ -189,7 +189,7 @@ class ViewController: UIViewController {
         if self.toMoon {
             self.sun.center.x = self.sun.center.x + self.animationSettings.sunDistance
             self.sun.transform = CGAffineTransform(scaleX: 6, y: 6)
-            self.sun.alpha = 0.2
+            self.sun.alpha = 0.1
 
             self.aquariusView.center.x = self.sun.center.x
             self.aquariusView.transform = self.sun.transform
