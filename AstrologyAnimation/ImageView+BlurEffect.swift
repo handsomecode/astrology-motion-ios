@@ -25,8 +25,8 @@ extension UIImageView {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
-
         self.addSubview(blurEffectView)
+
         return blurEffectView
     }
 
@@ -38,8 +38,8 @@ extension UIImageView {
         blurEffectView.frame = CGRect(x: 0.5 * (frame.width - blurWidth), y: 0.5 * (frame.width - blurWidth), width: blurWidth, height: blurWidth)
         blurEffectView.layer.cornerRadius = 0.5 * blurWidth
         blurEffectView.clipsToBounds = true
-
         self.addSubview(blurEffectView)
+
         return blurEffectView
     }
 }

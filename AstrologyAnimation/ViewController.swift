@@ -22,16 +22,16 @@ class ViewController: UIViewController {
 
     private struct AnimationSettings {
 
-        // Distance to move Sun view
+        // Distance of Sun movement
         let sunDistance: CGFloat = 620
 
-        // Distance to move Moon view
+        // Distance of Moon movement
         let moonDistance: CGFloat = 140
 
-        // Distance to move icons highlighter
+        // Distance of icons highlighter movement
         let highlighterDistance: CGFloat = 93
 
-        // Vector to move particles background image
+        // Vector of particles image movement
         let particlesVector = CGVector(dx: 400, dy: -100)
 
         // Control points for the cubic Bézier timing curve
@@ -184,7 +184,7 @@ class ViewController: UIViewController {
         sunAnimator.startAnimation(afterDelay: self.toMoon ? 0 : 0.18)
     }
 
-    // Sun movement, and scaling
+    // Sun movement and scaling
     private func sunAnimations() {
         if self.toMoon {
             self.sun.center.x = self.sun.center.x + self.animationSettings.sunDistance
